@@ -4,8 +4,7 @@
 The Detection Lab project aimed to establish a controlled environment for simulating and detecting cyber attacks. The primary focus was to ingest and analyze logs within a Security Information and Event Management (SIEM) system, generating test telemetry to mimic real-world attack scenarios. This hands-on experience was designed to deepen understanding of network security, attack patterns, and defensive strategies.
 
 ### Skills Learned
-[Bullet Points - Remove this afterwards]
-
+[Bullet
 - Advanced understanding of SIEM concepts and practical application.
 - Proficiency in analyzing and interpreting network logs.
 - Ability to generate and recognize attack signatures and patterns.
@@ -27,11 +26,11 @@ Lets Begin with installing Sysmon to our Windows 11 VM enviorment.
 -------
 
 
-+
++ Before beginning we need to meet some requirments before we can start .First thing is we need to have a VM environment to host the Windows 11 machine and the  other applicaion we are going to be using.(Im  using Promox VE) 
 
-+
++ So if you have your VM envirnment the next step is having Windows 11 ISO installed.if you dont install it and then we can begin/
 
-+
++ In your Windows 11 Vm lets start by downloading Sysmon so lets open up the internet browser and search Sysmon.Click the top link should be a Microsoft link.Once on the next page scroll down until you see the "Download Symon" link click it and the download should begin creating a Sysmon folder. 
 
 + After downloading the Sysmon folder now we need to gather the sysnom configuration so to do that go to back to your internet browser and search for sysmon config Olaf.CLick the link (Should be a github link).
 
