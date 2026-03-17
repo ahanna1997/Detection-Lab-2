@@ -4,7 +4,7 @@
 The Detection Lab project aimed to establish a controlled environment for simulating and detecting cyber attacks. The primary focus was to ingest and analyze logs within a Security Information and Event Management (SIEM) system, generating test telemetry to mimic real-world attack scenarios. This hands-on experience was designed to deepen understanding of network security, attack patterns, and defensive strategies.
 
 ### Skills Learned
-[Bullet
+
 - Advanced understanding of SIEM concepts and practical application.
 - Proficiency in analyzing and interpreting network logs.
 - Ability to generate and recognize attack signatures and patterns.
@@ -12,6 +12,7 @@ The Detection Lab project aimed to establish a controlled environment for simula
 - Development of critical thinking and problem-solving skills in cybersecurity.
 
 ### Tools Used
+
 - Windows 11 IOS
 - Sysmon
 - Wazuh
@@ -51,9 +52,31 @@ Lets Begin with installing Sysmon to our Windows 11 VM enviorment.
 + Now create a snapshot of your current state just incase something happens.
 
 
-Now lets install Wazuh
+Now let's install Wazuh
 ------
 
 - So fisrt we need to create our servers for Wazuh so using going to be using vultr.(If you dont have account you can make on or their are plenty of other alternatives servers).
 
-- So lets login if you gont have login create a account . Once inside lets click on Deploy and deploy new server and one the next page s
+- So lets login if you gont have login create a account . Once inside lets click on Deploy and deploy new server.
+  
+- For the type select shared CPU and location select the loaction for you.
+
+- Scroll down to select the specs and select 4vCPUs  and 8GB of memory.
+
+- Click on configure software for the OS select Ubuntu 24.04 .
+
+- Now for Server Name You can name it whatever you will like.( I'm naming mine MyDFIR-Wazuh ). and you dont need automatic backups and check the box. and deploy.
+
+- After that we need to repeat the steps for another server.(for the Hive)the only diffence is that we whould need to change the specs to handle all Elastic Search and Cassandra for the database we will to choose a higher vCPU and memory.So select 6 vCPU and 16 GB.
+
+- Now for OS select the same as above steps and name it (I'm naming mine MyDFIR -TheHive)Disable automatic backups aswell and deploy.
+
+- you should have two severs now.So now we need to open and run our Wazuh server and lets run the server.It two ways you can run the server:
+
+  + The first way to run the server is on the main screen of then Wazuh server page you can go and find the View Console show below.
+ 
+  + the second way to run the server is by using powershell  and using the the IP address and ssh command:
+    1.make sure you copy the IP address of you server 
+  
+  +
+  
