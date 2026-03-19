@@ -75,8 +75,9 @@ Now let's install Wazuh
 
   + The first way to run the server is on the main screen of then Wazuh server page you can go and find the View Console show below.
  
-  + the second way to run the server is by using powershell  and using the the IP address and ssh command:
-    1.make sure you copy the IP address of you server 
+  + the second way to run the server is by using powershell and using the the IP address and ssh command:
+     
+    1.make sure you copy the IP address of the server and in powershell  
   
   +
   
