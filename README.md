@@ -52,7 +52,7 @@ Lets Begin with installing Sysmon to our Windows 11 VM enviorment.
 + Now create a snapshot of your current state just incase something happens.
 
 
-Now let's install Wazuh
+Now let's install Wazuh and TheHive 
 ------
 
 - So fisrt we need to create our servers for Wazuh so using going to be using vultr.(If you dont have account you can make on or their are plenty of other alternatives servers).
@@ -75,9 +75,41 @@ Now let's install Wazuh
 
   + The first way to run the server is on the main screen of then Wazuh server page you can go and find the View Console show below.
  
-  + the second way to run the server is by using powershell and using the the IP address and ssh command:
+  + The second way to run the server is by using powershell and using the the IP address and ssh command:
      
-    1.make sure you copy the IP address of the server and in powershell  
-  
-  +
-  
+    1.Make sure you copy the public IP address of the server and in powershell lets use the ssh command so ssh root@the IP address for the Wazuh server.( Mine  was )
+    
+    2.Once SSHing into your Wazuh server you will need to login with your password which you will find it on the MyDFIR-Wazuh page copy the password and right click an paste it in the powershell termial.Onced logged in lets clear the screen and update and upgrade all of our     repositories by typing apt-get update  && apt-get upgrade -y and hit enter.
+    
+    
+  - Now will that downloading let install Wazuh so lets go to your internet browser and search up Wazuh and click on install Wazuh.On the install page scrool down and click Quickstart button and it will take you to the quickstart page.
+ 
+  - Scroll down and you will see Install Wazuh copy the command there on the page and paste in the command in the powershell.
+ 
+
+
+- Now lets do the same thing for our Hive server do lets open up our hive server copy our server IP address and lets open up a new powershell and  type shh root@IPaddress and type yes and the password for that server.
+
+- Now lets update and upgrade all of the respositories by typing apt-get update  && apt-get upgrade -y and hit enter.
+
+(Once both are done installing make sure you take note of the username ande passwords for both server)
+
+- now lets try connecting to our server using our web browser.
+
+- lets type https//: and the public IP address of the server.
+
+- Here you may get a error of site cant be reached so lets troubleshoot it 
+
++ So first thing is to check to see if there is any firewall that is preventing us from accessing the site.
+
+  1. So lets go to our server and click on settings and find firewall   on the left siode of the page. check to see if there is any if not go to the next step.
+ 
+  2. Now lets check the host firewall. but before we need to check to see that the server is up and running. So in Powershell you want to type systemctl status wazuh- the hit tab twice. Now you will see the service that you have running but we want to look at the manger          service so hit the up arrow key and type manger and the end of the command and enter.(you should see that is active and running but still arent able to connect to the server if so continue to the next step)
+     
+  3.  SO now we need to make modifications to our host firewall so let go to our powershell clear the screen by type clear and now we ant to allow an traffic thats coming in on port 443 so type ufw allow 443.
+ 
+  - Now let check the internet browser to see if the server is accessable. (You should be able to access the server just click advance in the error page)
+
+  - Now Wazuh server should be able lets log in using our creditional from earlier.
+ 
+  - 
