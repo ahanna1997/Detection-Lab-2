@@ -111,5 +111,12 @@ Now let's install Wazuh and TheHive
   - Now let check the internet browser to see if the server is accessable. (You should be able to access the server just click advance in the error page)
 
   - Now Wazuh server should be able lets log in using our creditional from earlier.
- 
-  - 
+
+
+  - Now lets look at our Hive server and let install it lets head over to StrangeBee .com
+
+  - So there you will see Step by Step instruction  to install TheHive. (Make sure its DEB configureation)
+
+  - So copy and and paste the commands in the powershell starting with Step 1.
+
+    + 
