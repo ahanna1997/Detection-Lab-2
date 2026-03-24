@@ -119,4 +119,110 @@ Now let's install Wazuh and TheHive
 
   - So copy and and paste the commands in the powershell starting with Step 1.
 
-    + 
+    + Step 1: Install required dependencies
+   
+    + Step 2: Set up the Java virtual machine (JVM)
+      - Run the following commands:
+
+wget -qO- https://apt.corretto.aws/corretto.key | sudo gpg --dearmor -o /usr/share/keyrings/corretto.gpg
+echo "deb [signed-by=/usr/share/keyrings/corretto.gpg] https://apt.corretto.aws stable main" | sudo tee -a /etc/apt/sources.list.d/corretto.sources.list
+** sudo apt update
+** sudo apt install java-common java-11-amazon-corretto-jdk
+echo JAVA_HOME="/usr/lib/jvm/java-11-amazon-corretto" | sudo tee -a /etc/environment
+export JAVA_HOME="/usr/lib/jvm/java-11-amazon-corretto"
+
+- Verify the installation.
+
+java -version
+
++ You should see output similar to the following:
+
+openjdk version "11.0.28" 2025-07-15
+OpenJDK Runtime Environment Corretto-11.0.28.6.1 (build 11.0.28+6-LTS)
+OpenJDK 64-Bit Server VM Corretto-11.0.28.6.1 (build 11.0.28+6-LTS, mixed mode)
+
+If a different Java version appears, set Java 11 as the default using sudo update-alternatives --config java.
+
+
+  + Step 3: Install and configure Apache Cassandra
+    - Add Cassandra repository references.
+
+a. Download Cassandra repository keys.
+
+wget -qO -  https://downloads.apache.org/cassandra/KEYS | sudo gpg --dearmor  -o /usr/share/keyrings/cassandra-archive.gpg
+
+b. Check if the /etc/apt/sources.list.d/cassandra.sources.list file exists. If it doesn't, create it.
+
+c. Add the repository to your system by appending the following line to the /etc/apt/sources.list.d/cassandra.sources.list file.
+
+echo "deb [signed-by=/usr/share/keyrings/cassandra-archive.gpg] https://debian.cassandra.apache.org 41x main" |  sudo tee -a /etc/apt/sources.list.d/cassandra.sources.list
+
+
+- Update your package index and install Cassandra using the following commands:
+
+sudo apt update
+sudo apt install cassandra
+
+- Verify that Cassandra is installed.
+
+sudo systemctl status cassandra
+
+This will show you the status of the Cassandra service. If Cassandra is installed you should see details about the service. If it's not installed, you will receive an error indicating that the service isn't found.
+
+By default, data is stored in /var/lib/cassandra. Set appropriate permissions for this directory to avoid any issues with data storage and access.
+
+sudo chown -R cassandra:cassandra /var/lib/cassandra
+
+
+-Next step in Cassandra is to configure and run it but we will come back to that later lets finish install the other necessary software.
+
+
+  + Step 4: Install and configure Elasticsearch
+
+-Add Elasticsearch repository references.
+
+a. Download Elasticsearch repository keys.
+
+wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch |  sudo gpg --dearmor -o /usr/share/keyrings/elasticsearch-keyring.gpg
+sudo apt-get install apt-transport-https
+
+b. Check if the /etc/apt/sources.list.d/elastic-8.x.list file exists. If it doesn't, create it.
+
+c. Add the repository to your system by appending the following line to the /etc/apt/sources.list.d/elastic-8.x.list file.
+
+echo "deb [signed-by=/usr/share/keyrings/elasticsearch-keyring.gpg] https://artifacts.elastic.co/packages/8.x/apt stable main" |  sudo tee /etc/apt/sources.list.d/elastic-8.x.list 
+
+- Update your package index and install Elasticsearch using the following commands:
+
+sudo apt update
+
+sudo apt install elasticsearch
+
+
++ Step 5: Install and configure TheHive
+
+- Download the installation package along with its SHA256 checksum and signature files.
+
+Using wget:
+
+wget -O /tmp/thehive_5.6.2-1_all.deb https://thehive.download.strangebee.com/5.6/deb/thehive_5.6.2-1_all.deb
+wget -O /tmp/thehive_5.6.2-1_all.deb.sha256 https://thehive.download.strangebee.com/5.6/sha256/thehive_5.6.2-1_all.deb.sha256
+wget -O /tmp/thehive_5.6.2-1_all.deb.asc https://thehive.download.strangebee.com/5.6/asc/thehive_5.6.2-1_all
+
+  - Install the package.
+
+   Using apt-get to manage dependencies automatically:
+
+  sudo apt-get install /tmp/thehive_5.6.2-1_all.deb.
+
+
+
+
+Configuring TheHive and Wazuh
+-----------
+In the hive powershell we need to cobnfigure cassandra so lets type nano/etc/cassandra/cassandra.yaml
+
+Once inside of the file first we want to change ther cluster name to whatever you would like.(i changed mine to mydfir)
+
+Now we need to change our listen address so to find a word that you want to look up just hold down the control button and type listen  and it should lead you to the listen_address where you will its listed as localhost.Lets replace it TheHive        
+
