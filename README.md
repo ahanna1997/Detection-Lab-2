@@ -16,6 +16,8 @@ The Detection Lab project aimed to establish a controlled environment for simula
 - Windows 11 IOS
 - Sysmon
 - Wazuh
+- Elasticsearch
+- Cassandra
 - Kali Linux
 - Security Information and Event Management (SIEM) system for log ingestion and analysis.
 - Network analysis tools (such as Wireshark) for capturing and examining network traffic.
@@ -220,9 +222,13 @@ wget -O /tmp/thehive_5.6.2-1_all.deb.asc https://thehive.download.strangebee.com
 
 Configuring TheHive and Wazuh
 -----------
-In the hive powershell we need to cobnfigure cassandra so lets type nano/etc/cassandra/cassandra.yaml
+- In the hive powershell we need to configure cassandra so lets type nano/etc/cassandra/cassandra.yaml.
 
-Once inside of the file first we want to change ther cluster name to whatever you would like.(i changed mine to mydfir)
+- Once inside of the file first we want to change ther cluster name to whatever you would like.(I changed mine to mydfir)
 
-Now we need to change our listen address so to find a word that you want to look up just hold down the control button and type listen  and it should lead you to the listen_address where you will its listed as localhost.Lets replace it TheHive        
+- Now we need to change our listen address so to find a word that you want to look up just hold down the control W and type listen  and it should lead you to the listen_address where you will its listed as localhost.Lets replace it with TheHive publuic IP Address which you    can get from Vultr.
+
+- 
+
+
 
