@@ -226,9 +226,16 @@ Configuring TheHive and Wazuh
 
 - Once inside of the file first we want to change ther cluster name to whatever you would like.(I changed mine to mydfir)
 
-- Now we need to change our listen address so to find a word that you want to look up just hold down the control W and type listen  and it should lead you to the listen_address where you will its listed as localhost.Lets replace it with TheHive publuic IP Address which you    can get from Vultr.
+- Now we need to change our listen address so to find a word that you want to look up just hold down the control W and type listen  and it should lead you to the listen_address where you will its listed as localhost.Lets replace it with TheHive publuic IP Address which you can get from Vultr.
 
-- 
+- Lets look up the RPC_address using control W and we are replacing it with the public Ip address of the Hive once again.
+
+- Lastly lets look up the seed using control w and replace that with the Hive public IP address aswell.
+
+- Save and exit the file by holding control X and hit Y to save and exit. Next stop the service of Cassandra by typing systemct1 stop cassandra and tab for auto completion and enter.
+
+- Next thing is to remove any of the remaining files under cassadra libary by typing rm -rf /var/lib/cassandra/*.After that lets start and look up the status of our service.
+
 
 
 
