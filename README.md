@@ -31,7 +31,7 @@ Lets Begin with installing Sysmon to our Windows 11 VM enviorment.
 
 + Before beginning we need to meet some requirments before we can start .First thing is we need to have a VM environment to host the Windows 11 machine and the  other applicaion we are going to be using.(Im  using Promox VE) 
 
-+ So if you have your VM envirnment the next step is having Windows 11 ISO installed.if you dont install it and then we can begin/
++ So if you have your VM envirnment the next step is having Windows 11 ISO installed.if you dont install it and then we can begin.
 
 + In your Windows 11 Vm lets start by downloading Sysmon so lets open up the internet browser and search Sysmon.Click the top link should be a Microsoft link.Once on the next page scroll down until you see the "Download Symon" link click it and the download should begin creating a Sysmon folder. 
 
@@ -234,7 +234,16 @@ Configuring TheHive and Wazuh
 
 - Save and exit the file by holding control X and hit Y to save and exit. Next stop the service of Cassandra by typing systemct1 stop cassandra and tab for auto completion and enter.
 
-- Next thing is to remove any of the remaining files under cassadra libary by typing rm -rf /var/lib/cassandra/*.After that lets start and look up the status of our service.
+- Next thing is to remove any of the remaining files under cassadra libary by typing rm -rf /var/lib/cassandra/*. After that lets start and look up the status of our service.
+
+- Now lets configure our elastic search so lets type nano /etc/elasticsearch/elasticsearch.yml.Find Cluster name  and change the name to whatever you like.(I changed mine to mydfir)
+
+- next lets down to node name asnd remove the  # to remove as a comment then scroll down to network host  and remove the # there aswell  and past the Public IP address for the hive.
+
+- Find http.port remove that # and then find cluster.intial and remove that #  but here we want to remove node 2 and leave node 1.
+
+- Save and exit that file.Run the command systemctl start elasticsearch enter and then systemctl enable elasticsearch and then the status by typing systemctl status elasticsearch
+
 
 
 
