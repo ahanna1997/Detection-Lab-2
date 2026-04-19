@@ -222,6 +222,7 @@ wget -O /tmp/thehive_5.6.2-1_all.deb.asc https://thehive.download.strangebee.com
 
 Configuring TheHive and Wazuh
 -----------
+
 - In the hive powershell we need to configure cassandra so lets type nano/etc/cassandra/cassandra.yaml.
 
 - Once inside of the file first we want to change ther cluster name to whatever you would like.(I changed mine to mydfir)
@@ -238,15 +239,36 @@ Configuring TheHive and Wazuh
 
 
 
-- Now lets configure our elastic search so lets type nano /etc/elasticsearch/elasticsearch.yml.Find Cluster name and change the name to whatever you like.(I changed mine to mydfir)
 
-- Next lets down to node name asnd remove the  # to remove as a comment then scroll down to network host  and remove the # there aswell  and past the Public IP address for the hive.
+- Now lets configure our elastic search so lets type nano /etc/elasticsearch/elasticsearch.yml.(If the files is not found you will have reinstall the eleasticsearch from StrangeBee website and run each  command one by one)
+
+-  Now inside the file we need to find Cluster name remove the # and change the name to whatever you like.(I changed mine to mydfir)
+
+- Next lets down to node name and remove the # to remove as a comment then scroll down to network host and remove the # there aswell and past the Public IP address for the Hive.
 
 - Find http.port remove that # and then find cluster.intial and remove that #  but here we want to remove node 2 and leave node 1.
  
 - Save and exit that file.Run the command systemctl start elasticsearch enter and then systemctl enable elasticsearch and then the status by typing systemctl status elasticsearch.
 
-- 
+- Now let start elastic search by typing systemctl start elasticsearch and then systemctl enable elasticsearch and then the status by typing  systemctl status elasticsearch
+
+
+
+
+- Now lets start configuring theHive but before we do that we need to change some permissions for a particular directory. So the directory that we are chamging is the opt/thp so type cd /opt/thp and once in the directory  type ll so see the current files in the directory.
+
+- So you will see that theHive is owned by root and root this is what we need to change so type chown -R thehive:thehive /opt/thp.(This will change the permissions and owner of the particular folder and the Hive directory will also change within thp)
+
+- Now that we did that lets start configuring theHive type nano /etc/thehive/application.conf and enter.Once insode lets find hostname and change the localhost IP address and use IP address of theHive.The find clustername amd change it to whatever name you was using for the clustername (mine was mydfir).
+
+- Now find index.search hostname and paste your IP address of theHive then find Service Configuration and change the application.baseUrl to the Thive IP address(Make sure to keep :9000 at the end) hit control X and save the file.
+
+-  Now lets start theHive so type systemctl start theHive, then systemctl enable thehive and after that check the status by typing systemctl status thehive.
+
+
+
+
+-After configuring thehive it time to connect to the thehivefrom the internet browser    
 
 
 
