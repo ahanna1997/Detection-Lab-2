@@ -226,23 +226,27 @@ Configuring TheHive and Wazuh
 
 - Once inside of the file first we want to change ther cluster name to whatever you would like.(I changed mine to mydfir)
 
-- Now we need to change our listen address so to find a word that you want to look up just hold down the control W and type listen  and it should lead you to the listen_address where you will its listed as localhost.Lets replace it with TheHive publuic IP Address which you can get from Vultr.
+- Now we need to change our listen address so to find a word that you want to look up just hold down the control W and type listen and it should lead you to the listen_address where you will its listed as localhost.Lets replace it with TheHive publuic IP Address which you can get from Vultr.
 
 - Lets look up the RPC_address using control W and we are replacing it with the public Ip address of the Hive once again.
 
-- Lastly lets look up the seed using control w and replace that with the Hive public IP address aswell.
+- Lastly lets look up the seed using control w and replace that with the Hive public IP address aswell. (make sure to leave the .7000)
 
 - Save and exit the file by holding control X and hit Y to save and exit. Next stop the service of Cassandra by typing systemct1 stop cassandra and tab for auto completion and enter.
 
-- Next thing is to remove any of the remaining files under cassadra libary by typing rm -rf /var/lib/cassandra/*. After that lets start and look up the status of our service.
+- Next thing is to remove any of the remaining files under cassadra libary by typing rm -rf /var/lib/cassandra/*. After that lets start Cassandra and look up the status of our service by typing systemct1 start cassandra.service and then systemct1 status cassandra.service . 
 
-- Now lets configure our elastic search so lets type nano /etc/elasticsearch/elasticsearch.yml.Find Cluster name  and change the name to whatever you like.(I changed mine to mydfir)
 
-- next lets down to node name asnd remove the  # to remove as a comment then scroll down to network host  and remove the # there aswell  and past the Public IP address for the hive.
+
+- Now lets configure our elastic search so lets type nano /etc/elasticsearch/elasticsearch.yml.Find Cluster name and change the name to whatever you like.(I changed mine to mydfir)
+
+- Next lets down to node name asnd remove the  # to remove as a comment then scroll down to network host  and remove the # there aswell  and past the Public IP address for the hive.
 
 - Find http.port remove that # and then find cluster.intial and remove that #  but here we want to remove node 2 and leave node 1.
+ 
+- Save and exit that file.Run the command systemctl start elasticsearch enter and then systemctl enable elasticsearch and then the status by typing systemctl status elasticsearch.
 
-- Save and exit that file.Run the command systemctl start elasticsearch enter and then systemctl enable elasticsearch and then the status by typing systemctl status elasticsearch
+- 
 
 
 
