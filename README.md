@@ -277,10 +277,12 @@ Configuring TheHive and Wazuh
 
 - Now in you Windows11 VM it time to head to Wazah manager dashboard and and deploy a new agent in the top left hand corner of the page .on the next deploy new agent page select the Windows install and for your server address which is the Public IP address of your Wazah (Mine is ???)and then give it a agent name.(Mine will be MyDFIR_Windows).
 
-- now lets run the command in step 4 in powershell to install copy and paste it into your Powershell and after type in net start wazuhsvc and you should see a message prompting "wazah service was started successfully ". 
+- Now lets run the command in step 4 in powershell to install copy and paste it into your Powershell and after type in net start wazuhsvc and you should see a message prompting "wazah service was started successfully ". 
 
-  As you will see in the dashboard   
+- As you will see in the dashboard no agent has come after a couple of minutes so that mean we have to enable a couple of ports within the UFW to allow the agent to communicate with the Wazuh manager.So go to your SSH wazuh session so now you need to allow 2 ports which is 1514 and 1515.Let type ufw allow 1514 and ufw allow 1515.
 
+- SO i youe VM windows 11 lets open up Services and look for Wazuh right click and restart and boom  you should see active now.
+ 
 
 
 
