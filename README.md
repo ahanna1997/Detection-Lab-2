@@ -268,7 +268,20 @@ Configuring TheHive and Wazuh
 
 
 
--After configuring thehive it time to connect to the thehivefrom the internet browser    
+- After configuring thehive it time to connect to the thehive from the internet browser but as you will see its isnt able to connect due to the firewall so youll have to give it permission to pass tho. So back in the powershell type ufw allow 9000 and it will add a rule.
+
+- Now back to the web browser and refresh the broswer and you should be able to see the Hive login page.
+
+- Login into the hive by using the username and password from the StrangeBee website copy them and paste them to login.
+
+
+- Now in you Windows11 VM it time to head to Wazah manager dashboard and and deploy a new agent in the top left hand corner of the page .on the next deploy new agent page select the Windows install and for your server address which is the Public IP address of your Wazah (Mine is ???)and then give it a agent name.(Mine will be MyDFIR_Windows).
+
+- now lets run the command in step 4 in powershell to install copy and paste it into your Powershell and after type in net start wazuhsvc and you should see a message prompting "wazah service was started successfully ". 
+
+  As you will see in the dashboard   
+
+
 
 
 
