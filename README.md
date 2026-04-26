@@ -242,7 +242,8 @@ Configuring TheHive and Wazuh
 
 - Now lets configure our elastic search so lets type nano /etc/elasticsearch/elasticsearch.yml.(If the files is not found you will have reinstall the eleasticsearch from StrangeBee website and run each  command one by one)
 
--  Now inside the file we need to find Cluster name remove the # and change the name to whatever you like.(I changed mine to mydfir)
+-  Now inside the file we need to find Cluster name remov
+-     e the # and change the name to whatever you like.(I changed mine to mydfir)
 
 - Next lets down to node name and remove the # to remove as a comment then scroll down to network host and remove the # there aswell and past the Public IP address for the Hive.
 
@@ -281,8 +282,23 @@ Configuring TheHive and Wazuh
 
 - As you will see in the dashboard no agent has come after a couple of minutes so that mean we have to enable a couple of ports within the UFW to allow the agent to communicate with the Wazuh manager.So go to your SSH wazuh session so now you need to allow 2 ports which is 1514 and 1515.Let type ufw allow 1514 and ufw allow 1515.
 
-- SO i youe VM windows 11 lets open up Services and look for Wazuh right click and restart and boom  you should see active now.
- 
+- So now in your VM windows 11 lets open up Services and look for Wazuh right click and restart and boom  you should see active now. 
+
+
+Now lets Configure our Windows11 VM to start send sysmon 9telemtry to are Wazuh manager 
+------
+
+- So to begin    
+
+
+
+Create a custom detection rule to start looking for mailicious activity 
+-----
+
+
+
+
+
 
 
 
