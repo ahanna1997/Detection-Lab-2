@@ -288,7 +288,15 @@ Configuring TheHive and Wazuh
 Now lets Configure our Windows11 VM to start send sysmon 9telemtry to are Wazuh manager 
 ------
 
-- So to begin    
+- So to begin first we need to configure the Windows11. Lets find where Wazuh is currently installed so click on file explorer go to this PC go into your C drive program files,x86,and then click into the ossec-agent and then find the ossec.conf.
+
+- Right click on the ossec.conf file and click copy the file and paste it inside to make a copy of the file to make backup ossec.conf file.
+
+- After creating a backup we can now configure the ossec file and lets open notepad and Run as administrator.Go to file -> open and find the ossec.conf ( You will need to change the file type to "ALL FILES" to find the file )
+
+-   Once inside of the file lets scroll down until you find log Analysis  
+
+- 
 
 
 
