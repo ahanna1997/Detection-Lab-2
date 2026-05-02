@@ -285,7 +285,7 @@ Configuring TheHive and Wazuh
 - So now in your VM windows 11 lets open up Services and look for Wazuh right click and restart and boom  you should see active now. 
 
 
-Now lets Configure our Windows11 VM to start send sysmon 9telemtry to are Wazuh manager 
+Now lets Configure our Windows11 VM to start send sysmon telemtry to are Wazuh manager 
 ------
 
 - So to begin first we need to configure the Windows11. Lets find where Wazuh is currently installed so click on file explorer go to this PC go into your C drive program files,x86,and then click into the ossec-agent and then find the ossec.conf.
@@ -294,9 +294,19 @@ Now lets Configure our Windows11 VM to start send sysmon 9telemtry to are Wazuh 
 
 - After creating a backup we can now configure the ossec file and lets open notepad and Run as administrator.Go to file -> open and find the ossec.conf ( You will need to change the file type to "ALL FILES" to find the file )
 
--   Once inside of the file lets scroll down until you find log Analysis  
+-   Once inside of the file lets scroll down until you find log Analysis. Here we need to remove all the < local files > expect one we will be using it.
 
-- 
+-   We will need to go to Event Viewer and click Application and Services Logs -> Microsoft -> Windows -> Sysmon. Right click Opertational and click Properties
+
+-  Copy the full name and now go back the ossec.conf and lets place the it within the <local file> and save the file and now we need to restart our service because we made changes to to file.        
+
+- So let search for serivce in our search box ,type W and find Wazuh right click it and hit restart.
+
+- Now back on our host lets go back to the wazuh website and lets check to see if we have so sysmon activity.So on the wazuh page in the top left click the 3 lines icon and find explore click into it and find discover.
+
+- Once inside you should be seeing sysmon activity so if you search sysmon.Now it time to start testing for mimic telemetry.
+
+- Now lets go back  
 
 
 
