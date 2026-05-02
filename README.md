@@ -242,9 +242,8 @@ Configuring TheHive and Wazuh
 
 - Now lets configure our elastic search so lets type nano /etc/elasticsearch/elasticsearch.yml.(If the files is not found you will have reinstall the eleasticsearch from StrangeBee website and run each  command one by one)
 
--  Now inside the file we need to find Cluster name remov
--     e the # and change the name to whatever you like.(I changed mine to mydfir)
-
+-  Now inside the file we need to find Cluster name remove the # and change the name to whatever you like.(I changed mine to mydfir).
+  
 - Next lets down to node name and remove the # to remove as a comment then scroll down to network host and remove the # there aswell and past the Public IP address for the Hive.
 
 - Find http.port remove that # and then find cluster.intial and remove that #  but here we want to remove node 2 and leave node 1.
@@ -306,7 +305,17 @@ Now lets Configure our Windows11 VM to start send sysmon telemtry to are Wazuh m
 
 - Once inside you should be seeing sysmon activity so if you search sysmon.Now it time to start testing for mimic telemetry.
 
-- Now lets go back  
+- Now lets go back  our VM windows and now we have to disable Microsoft Defender so in the search box type in defender and windows sercurity should appear click into it and find virus and protection.
+
+- Find Manage settings under virus & threat protection settings and inside turn off all the protection real time protection,  cloud-delivered protection,automatic samples, and tamper protection .
+  
+- Now lets go back to internet browser and let look up mimikaz to find its github .Once you found it click on code and scroll down and copy the gentilkiwi link .
+
+- In the link you want to download mimikatz trunk.zip (If it is blocked hits the three dots and select keep it will give you a pop up and click the down arrow and keep anyway)
+
+- Once downloaded open it up and right click and hit extract All.After that find the x64 files and click into it and from here you want to open a powershell from this file.
+
+- In  powershell 
 
 
 
